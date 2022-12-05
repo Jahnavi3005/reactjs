@@ -16,13 +16,28 @@ function App(){
 export default App;*/
 
 //import PropsExample from './PropsExample'
-import Events from './Events'
+//import Events from './Events'
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Home from "./Components/Home"
+import About from "./Components/About"
+import Contact from "./Components/Contact"
+import Navbar from "./Components/Navbar"
+import NotFound from "./Components/NotFound"
 function App(){
   return(
     <div>
+      <BrowserRouter>
+      <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="*" element={<NotFound/>}/>
+        </Routes>
+      </BrowserRouter>
       {/*<h1>This is about Props</h1>
-      <PropsExample name="janu" age="20"/>*/}
-      <Events/>
+      <PropsExample name="janu" age="20"/>
+      <Events/>*/}
     </div>
   )
 }
